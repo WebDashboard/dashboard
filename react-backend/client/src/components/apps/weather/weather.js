@@ -71,7 +71,7 @@ class WeatherForecast extends React.Component {
     }
 
     return <div className = "weather-day">
-             <Link to={`/`} className = "testingLink"></Link>
+             <Link to={`/`} className = "testingLink clickable"></Link>
              <p className = "day-name">{this.dayOfWeek(date)}</p>
              <p className = "day-desc">{text}</p>
              <img className = "day-icon" src = {icon} />

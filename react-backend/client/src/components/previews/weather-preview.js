@@ -47,7 +47,7 @@ export default class WeatherPreview extends React.Component {
        });
    }
    render() {
-     return <Link to={`/weather`} style={{ textDecoration: 'none', color: 'white' }}><div className="preview-weather">
+     return <Link to={`/weather`} style={{ textDecoration: 'none', color: 'white' }} className = "clickable"><div className="preview-weather clickable">
        <img className = "icon" src = {this.state.image} />
        <p className = "description">{this.state.description}</p>
        <p>{Math.round(this.state.temperature)}<sup>o</sup>F</p>
