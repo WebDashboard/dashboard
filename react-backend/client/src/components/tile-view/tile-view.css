@@ -34,3 +34,7 @@
   .icon {
     height: 15vh;
   }
+  .clickable {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+  }
