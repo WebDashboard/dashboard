@@ -1,7 +1,7 @@
 import React from 'react';
 import App from './components/tile-view/tile-view.js';
-import WeatherApp from './components/weather/weather.js';
-import NotesApp from './components/notes/notes.js';
+import WeatherApp from './components/apps/weather/weather.js';
+import NotesApp from './components/apps/notes/notes.js';
 
 import {
   BrowserRouter as Router,
