@@ -1,12 +1,48 @@
 .today {
+    position: relative;
     width: 50vw;
     height: 100vh;
     display: inline-block;
     background-color: red;
+    padding-top: 16vh;
+    padding-left: 8vw;
   }
 .future {
+    position: relative;
     width: 50vw;
     background-color: blue;
     display: inline-block;
     height: 100vh;
+    padding-top: 16vh;
+    padding-left: 8vw;
+}
+.testingLink {
+    background-color: blue !important;
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+.clickable {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+.todayTitle {
+    top: 0;
+    left: 0;
+    width: 50vw;
+    position: fixed;
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+}
+.futureTitle {
+    top: 0;
+    left: 50vw;
+    width: 50vw;
+    position: fixed;
+    text-align: center;
+    font-size: 5vh;
+    color: white;
 }

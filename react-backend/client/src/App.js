@@ -6,7 +6,6 @@ import NotesApp from './components/apps/notes/notes.js';
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom'
 
 const BasicExample = () => (
@@ -14,26 +13,25 @@ const BasicExample = () => (
     <div>
       <Route exact path="/" component={Home}/>
       <Route path="/weather" component={Weather}/>
+      <Route path="/notes" component={Notes}/>
     </div>
   </Router>
 )
-
+//Home
 const Home = ({match}) => (
   <div>
     <App />
-    <Link to={`/about`}>
-      About
-    </Link>
   </div>
 )
-
+//Apps
 const Weather = () => (
   <div>
     <WeatherApp />
-    <Link to={`/`}>
-      Home
-    </Link>
   </div>
 )
-
+const Notes = () => (
+  <div>
+    <NotesApp />
+  </div>
+)
 export default BasicExample

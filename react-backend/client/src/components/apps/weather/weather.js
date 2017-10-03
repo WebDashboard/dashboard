@@ -1,8 +1,6 @@
 import React from 'react';
 import './weather.css';
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom'
 
@@ -37,15 +35,6 @@ class WeatherForecast extends React.Component {
   
   daily() {
     var that = this;
-    function capFirst(str) {
-      str = str.toLowerCase().split(' ');
-      for(var i = 0; i < str.length; i++){
-          str[i] = str[i].split('');
-          str[i][0] = str[i][0].toUpperCase(); 
-          str[i] = str[i].join('');
-      }
-      return str.join(' ');
-    }
     fetch('https://api.apixu.com/v1/forecast.json?key=ed4074b8e05f40349e902646172009&q=18066&days=5')
       .then(function(response) {
         return response.json();
@@ -74,7 +63,7 @@ class WeatherForecast extends React.Component {
              <Link to={`/`} className = "testingLink clickable"></Link>
              <p className = "day-name">{this.dayOfWeek(date)}</p>
              <p className = "day-desc">{text}</p>
-             <img className = "day-icon" src = {icon} />
+             <img className = "day-icon" src = {icon} alt = "weather-icon"/>
              <p className = "day-temp right-margin">{Math.round(data.mintemp_f)}</p>
              <p className = "day-temp left-margin">{Math.round(data.maxtemp_f)}</p>
              <p className = "day-wind">{Math.round(data.maxwind_mph)}mph</p>
@@ -91,7 +80,6 @@ class WeatherForecast extends React.Component {
     return <div className="forecast-weather">
       {element}
     </div>;
-    element = [];
   }
 }
 export class CurrentWeather extends React.Component {
@@ -136,7 +124,7 @@ export class CurrentWeather extends React.Component {
   }
   render() {
     return <div className="current-weather">
-      <img className = "current-icon" src = {this.state.image} />
+      <img className = "current-icon" src = {this.state.image} alt = "weather-icon"/>
       <p className = "current-description">{this.state.description}</p>
       <p>{Math.round(this.state.temperature)}<sup>o</sup>F</p>
     </div>;
@@ -158,16 +146,6 @@ export default class WeatherApp extends React.Component {
   
   
   tick() {
-    var that = this;
-    function capFirst(str) {
-      str = str.toLowerCase().split(' ');
-      for(var i = 0; i < str.length; i++){
-          str[i] = str[i].split('');
-          str[i][0] = str[i][0].toUpperCase(); 
-          str[i] = str[i].join('');
-      }
-      return str.join(' ');
-    }
     fetch('https://api.apixu.com/v1/current.json?key=ed4074b8e05f40349e902646172009&q=18066')
       .then(function(response) {
         return response.json();
