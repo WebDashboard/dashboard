@@ -13,7 +13,8 @@ const BasicExample = () => (
     <div>
       <Route exact path="/" component={Home}/>
       <Route path="/weather" component={Weather}/>
-      <Route path="/notes" component={Notes}/>
+      <Route path="/notes/today" component={NotesToday}/>
+      <Route path="/notes/tomorrow" component={NotesTomorrow}/>
     </div>
   </Router>
 )
@@ -29,9 +30,14 @@ const Weather = () => (
     <WeatherApp />
   </div>
 )
-const Notes = () => (
+const NotesToday = () => (
   <div>
-    <NotesApp />
+    <NotesApp currentDay = "today" />
+  </div>
+)
+const NotesTomorrow = () => (
+  <div>
+    <NotesApp currentDay = "tomorrow" />
   </div>
 )
 export default BasicExample

@@ -1,12 +1,70 @@
 .today {
+    padding-top: 14vh;
+    padding-left: 16vh;
     width: 50vw;
     height: 100vh;
     display: inline-block;
-    background-color: red;
+    background-color: white;
+    border-right: 1px solid grey;
+    position: relative;
   }
 .future {
+    padding-top: 14vh;
+    padding-left: 16vh;
     width: 50vw;
-    background-color: blue;
+    background-color: white;
+    border-left: 1px solid grey;
     display: inline-block;
     height: 100vh;
+    position: relative;
+}
+.testingLink {
+    background-color: blue !important;
+    width: 5vw;
+    height: 5vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+.clickable {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+.todayTitle {
+    padding-top: 6.25vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    text-align: center;
+    color: black;
+    font-size: 5.5vh;
+}
+.futureTitle {
+    padding-top: 6.25vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    text-align: center;
+    color: black;
+    font-size: 5.5vh;
+}
+.openNextDay {
+    background-color: grey !important;
+    width: 40vw;
+    height: 8vh;
+    position: absolute;
+    left: 5vw;
+    opacity: 0.5;
+    top: 92vh;
+}
+.openPreviousDay {
+    background-color: grey !important;
+    width: 40vw;
+    height: 8vh;
+    position: absolute;
+    left: 5vw;
+    opacity: 0.3;
+    top: 0;
 }

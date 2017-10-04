@@ -16,7 +16,7 @@ export default class NotesPreview extends React.Component {
    }
    
    render() {
-     return <Link to={`/notes`} style={{ textDecoration: 'none', color: 'white' }} className = "clickable"><div className="preview-weather clickable"></div>
+     return <Link to={`/notes/today`} style={{ textDecoration: 'none', color: 'white' }} className = "clickable"><div className="preview-weather clickable"></div>
     </Link>;
    }
  }
