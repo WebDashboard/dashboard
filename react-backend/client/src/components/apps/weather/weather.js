@@ -124,7 +124,7 @@ export class CurrentWeather extends React.Component {
   }
   render() {
     return <div className="current-weather">
-      <img className = "current-icon" src = {this.state.image} alt = "weather-icon"/>
+      <img className = "current-icon" src = {this.state.image} />
       <p className = "current-description">{this.state.description}</p>
       <p>{Math.round(this.state.temperature)}<sup>o</sup>F</p>
     </div>;
