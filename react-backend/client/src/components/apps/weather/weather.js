@@ -63,7 +63,7 @@ class WeatherForecast extends React.Component {
              <Link to={`/`} className = "testingLink clickable"></Link>
              <p className = "day-name">{this.dayOfWeek(date)}</p>
              <p className = "day-desc">{text}</p>
-             <img className = "day-icon" src = {icon} alt = "weather-icon"/>
+             <img className = "day-icon" src = {icon} alt = ""/>
              <p className = "day-temp right-margin">{Math.round(data.mintemp_f)}</p>
              <p className = "day-temp left-margin">{Math.round(data.maxtemp_f)}</p>
              <p className = "day-wind">{Math.round(data.maxwind_mph)}mph</p>
@@ -124,7 +124,7 @@ export class CurrentWeather extends React.Component {
   }
   render() {
     return <div className="current-weather">
-      <img className = "current-icon" src = {this.state.image} />
+      <img className = "current-icon" src = {this.state.image} alt = "" />
       <p className = "current-description">{this.state.description}</p>
       <p>{Math.round(this.state.temperature)}<sup>o</sup>F</p>
     </div>;

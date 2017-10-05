@@ -18,7 +18,7 @@ import {
     var date = new Date(0);
     date.setUTCSeconds(unix)
     var strDate = date.toDateString();
-    var strDate = strDate.substr(0,10)
+    strDate = strDate.substr(0,10)
     return (strDate)
    }
    //Takes an array of JSON objects and fromats it into HTML tags to be rendered, and a dayNumber for which days notes to use, 0 = today, 1 = tomorrow, etc.
@@ -69,10 +69,10 @@ import {
      console.log(day)
      return <div className = "today">
               <Link to={`/`} className = "testingLink clickable"></Link>
-              <div onClick={() => {if (this.state.dayNumber > 0){{this.changeDayNumber(-1)}}}} className = "openPreviousDay clickable"></div>
+              <div onClick={() => {if (this.state.dayNumber > 0){this.changeDayNumber(-1)}}} className = "openPreviousDay clickable"></div>
               <p className = "todayTitle">{day}</p>
               {this.getNotes(dayNumber)}
-              <div onClick={() => {if (this.state.dayNumber < 13){{this.changeDayNumber(1)}}}} className = "openNextDay clickable"></div>
+              <div onClick={() => {if (this.state.dayNumber < 13){this.changeDayNumber(1)}}} className = "openNextDay clickable"></div>
             </div>
    }
 
