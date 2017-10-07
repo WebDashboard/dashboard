@@ -21,14 +21,38 @@ import {
     strDate = strDate.substr(0,10)
     return (strDate)
    }
-   //Takes an array of JSON objects and fromats it into HTML tags to be rendered, and a dayNumber for which days notes to use, 0 = today, 1 = tomorrow, etc.
-   formatNotesJson(data, dayNumber) {
-    var that = this;
-    //Gets the current date, adds 24 hours (86400 seconds) per dayNumber
-    var currentDate = Math.round((new Date()).getTime() / 1000);
-    currentDate += (86400 * dayNumber);
-    currentDate = this.epochToNatural(currentDate)
 
+   formatToday(data, currentDate) {
+    var that = this;
+    var titles = [];
+    var currentDateString = that.epochToNatural(currentDate);
+    data.forEach(function(temp) {
+      if (temp.date) {
+        var noteDateNat = that.epochToNatural(temp.date);
+        var noteDateEpoch = temp.date;
+      }
+      if (noteDateNat === currentDateString ) {
+        titles.push(
+          <div key = {temp.id + "-div"}>
+            <p className = "notes-title" key = {temp.id + "-title"}>{temp.title.toString()}</p>
+            <p className = "notes-desc" key = {temp.id + "-desc"}>{temp.desc.toString()}</p>
+          </div>
+        );
+      }
+      else if (noteDateEpoch < currentDate) {
+        titles.push(
+          <div key = {temp.id + "-div"}>
+            <p className = "notes-title notes-late" key = {temp.id + "-title"}>{temp.title.toString()}</p>
+            <p className = "notes-desc notes-late" key = {temp.id + "-desc"}>{temp.desc.toString()}</p>
+          </div>
+        );
+      }
+    })
+    return titles;
+   }
+
+   formatFutureDay(data, currentDate) {
+    var that = this;
     var titles = [];
     data.forEach(function(temp) {
       if (temp.date) {
@@ -43,6 +67,22 @@ import {
         );
       }
     })
+    return titles;
+   }
+
+   //Takes an array of JSON objects and fromats it into HTML tags to be rendered, and a dayNumber for which days notes to use, 0 = today, 1 = tomorrow, etc.
+   formatNotesJson(data, dayNumber) {
+    var that = this;
+    //Gets the current date, adds 24 hours (86400 seconds) per dayNumber
+    var currentDate = Math.round((new Date()).getTime() / 1000);
+    currentDate += (86400 * dayNumber);
+    var currentDateString = this.epochToNatural(currentDate)
+    if (dayNumber == 0) {
+      var titles = this.formatToday(data, currentDate);
+    }
+    else {
+      var titles = this.formatFutureDay(data, currentDateString);
+    }
     var response = <div>{titles}</div>
     return response;
    }

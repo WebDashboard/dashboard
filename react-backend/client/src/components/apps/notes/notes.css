@@ -68,3 +68,6 @@
     opacity: 0.3;
     top: 0;
 }
+.notes-late {
+    color: red;
+}
