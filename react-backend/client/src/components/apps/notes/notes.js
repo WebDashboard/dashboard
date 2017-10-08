@@ -1,3 +1,4 @@
+//If you are the unfortunate person trying to fix or add soemthing to this mess of a component I feel bad for you. (And wish you luck)
 import React from 'react';
 import './notes.css';
 import {
@@ -36,6 +37,14 @@ import {
           <div key = {temp.id + "-div"}>
             <p className = "notes-title" key = {temp.id + "-title"}>{temp.title.toString()}</p>
             <p className = "notes-desc" key = {temp.id + "-desc"}>{temp.desc.toString()}</p>
+          </div>
+        );
+      }
+      else if (temp.isDaily) {
+        titles.push(
+          <div key = {temp.id + "-div"}>
+            <p className = "notes-title notes-daily" key = {temp.id + "-title"}>{temp.title.toString()}</p>
+            <p className = "notes-desc notes-daily" key = {temp.id + "-desc"}>{temp.desc.toString()}</p>
           </div>
         );
       }
