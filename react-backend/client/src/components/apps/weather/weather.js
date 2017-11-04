@@ -21,6 +21,7 @@ class WeatherForecast extends React.Component {
   dayOfWeek(seconds) {
     var d = new Date(0);
     d.setUTCSeconds(seconds);
+    //Compensates for timezone
     d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     var weekday = new Array(7);
     weekday[0] =  "Sunday";
