@@ -2,6 +2,7 @@ import React from 'react';
 import App from './components/tile-view/tile-view.js';
 import WeatherApp from './components/apps/weather/weather.js';
 import NotesApp from './components/apps/notes/notes.js';
+import Test from './components/apps/test/test.js';
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ const BasicExample = () => (
       <Route exact path="/" component={Home}/>
       <Route path="/weather" component={Weather}/>
       <Route path="/notes" component={Notes}/>
+      <Route path="/test" component={TestVar}/>
     </div>
   </Router>
 )
@@ -32,6 +34,11 @@ const Weather = () => (
 const Notes = () => (
   <div>
     <NotesApp currentDay = "today" />
+  </div>
+)
+const TestVar = () => (
+  <div>
+    <Test />
   </div>
 )
 export default BasicExample

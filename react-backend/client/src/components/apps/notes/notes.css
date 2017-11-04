@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 .today {
     padding-top: 14vh;
     padding-left: 16vh;
@@ -7,6 +11,8 @@
     background-color: white;
     border-right: 1px solid grey;
     position: relative;
+    overflow-y: auto;
+    pointer-events: auto
   }
 .future {
     padding-top: 14vh;
@@ -17,6 +23,7 @@
     display: inline-block;
     height: 100vh;
     position: relative;
+    overflow-y: auto;
 }
 .testingLink {
     background-color: blue !important;
@@ -54,7 +61,7 @@
     background-color: grey !important;
     width: 40vw;
     height: 8vh;
-    position: absolute;
+    position: fixed;
     left: 5vw;
     opacity: 0.5;
     top: 92vh;
@@ -73,4 +80,33 @@
 }
 .notes-daily {
     color: blue;
+}
+.notes-new-note-menu {
+    background-color: orange;
+    width: 500px;
+    height: 360px;
+    position: fixed;
+    z-index: 1000000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    text-align: center;
+}
+.notes-new-title {
+    color: white;
+    font-size: 2.25em;
+}
+input {
+    pointer-events: auto !important;
+    cursor: auto !important;
+}
+.new-note-button{
+    width: 4vh;
+    height: 4vh;
+    background-color: red;
+    margin-bottom: 10vh;
+    text-align: center;
+    color: white;
+    line-height: 4vh;
+    font-size: 3vh;
 }
