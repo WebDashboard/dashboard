@@ -20,7 +20,7 @@ export class NewNoteMenu extends React.Component {
     }
 
     newNote(noteName, noteDesc) {
-      fetch('/notesapp/new', {
+      fetch('/notesapp/new/daily', {
           dataType:"json",
           method: 'post',
           headers: {
@@ -48,7 +48,7 @@ export class NewNoteMenu extends React.Component {
     onSubmit = (e) => {
       e.preventDefault();
       if (this.state.noteName.replace(/\s/g, '').length) {
-        fetch('/notesapp/new', {
+        fetch('/notesapp/new/' + this.props.collection, {
           dataType:"json",
           method: 'post',
           headers: {
@@ -96,11 +96,11 @@ export class NewNoteMenuButton extends React.Component {
     return <div><div className = "new-note-button clickable" onClick={ () => {this.setState({isOpen: true})}}>
               <p>+</p>
            </div>
-           <NewNoteMenu isOpen = {this.state.isOpen} curDate = {this.props.curDate} getNoteData = {this.props.getNoteData} toggleIsOpen = {this.toggleIsOpen}/>
+           <NewNoteMenu isOpen = {this.state.isOpen} curDate = {this.props.curDate} getNoteData = {this.props.getNoteData} toggleIsOpen = {this.toggleIsOpen} collection = {this.props.collection}/>
            </div>
   }
-  }
-  //This class is a mess.
+}
+//This class is a mess.
 class FormatNotes extends React.Component {
     constructor(props) {
      super(props);
@@ -160,7 +160,7 @@ class FormatNotes extends React.Component {
         );
       }
     })
-    titles.push(<NewNoteMenuButton key = "332769595" curDate = {this.naturalToEpoch(currentDate)} getNoteData = {this.props.getNoteData} />);
+    titles.push(<NewNoteMenuButton key = "332769595" curDate = {this.naturalToEpoch(currentDate)} getNoteData = {this.props.getNoteData} collection = "daily"/>);
     return titles;
    }
 
@@ -179,7 +179,7 @@ class FormatNotes extends React.Component {
         );
       }
     })
-    titles.push(<NewNoteMenuButton key = "3324235235" curDate = {this.naturalToEpoch(currentDate)} getNoteData = {this.props.getNoteData} />);
+    titles.push(<NewNoteMenuButton key = "3324235235" curDate = {this.naturalToEpoch(currentDate)} getNoteData = {this.props.getNoteData} collection = "daily"/>);
     return titles;
    }
 
@@ -227,13 +227,15 @@ class FormatNotes extends React.Component {
               <div onClick={() => {if (this.state.dayNumber < 13){this.changeDayNumber(1)}}} className = "openNextDay clickable"></div>
             </div>
    }
-
+   notesFuture() {
+     return <p>rfrfrfr</p>;
+   }
    render() {
      return <div>
        {this.notesToday([this.state.dayNumber])}
        <div className = "future">
        <p className = "futureTitle">Future</p>
-         
+         {this.notesFuture}
        </div>
      </div>;
    }

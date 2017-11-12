@@ -14,7 +14,7 @@ export default class Test extends React.Component {
       }
 
     newNote() {
-        fetch('/notesapp/new', {
+        fetch('/notesapp/neww', {
             dataType:"json",
             method: 'post',
             headers: {
